@@ -37,7 +37,7 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     }
 
     @Test
-    @Description("Находим рыбницу по фильтрацией в каталоге")
+    @Description("Находим рыбницу с помощью фильтрации в каталоге")
     void findPlateForFishByFiltersTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -66,7 +66,7 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     }
 
     @Test
-    @Description("На странице конкретной экскурсии есть 2 другие экскурсии")
+    @Description("На странице конкретной экскурсии есть инф.блоки 2 других экскурсий")
     void onIndividualTourPageSholdHasOthersToursTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -86,7 +86,7 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     }
 
     @Test
-    @Description("Проверяем адрес магазина в Суздале")
+    @Description("Проверяем корректность адреса магазина в Суздале")
     void validSuzdalStoreAddressTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -109,7 +109,7 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     }
 
     @Test
-    @Description("Алерт о безуспешной авторизации")
+    @Description("Наличие алерта при безуспешной авторизации")
     void successfulRegistrationTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
