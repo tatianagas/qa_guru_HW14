@@ -41,3 +41,8 @@ gradle clean goose_test
 
 <img src="/images/report.jpg" width="300" height="300">
 
+Видео прогона одного из автотестов
+
+![animation.gif](animation/animation.gif))
+
+
