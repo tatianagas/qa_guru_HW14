@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import jdk.jfr.Description;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +24,7 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
 
 
     @Test
-    @Description("Наличие ссылки на логотип завода на главной странице")
+    @DisplayName("Наличие ссылки на логотип завода на главной странице")
     void logoLinkMainPageTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -37,7 +38,7 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     }
 
     @Test
-    @Description("Находим рыбницу с помощью фильтрации в каталоге")
+    @DisplayName("Находим рыбницу с помощью фильтрации в каталоге")
     void findPlateForFishByFiltersTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -66,7 +67,7 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     }
 
     @Test
-    @Description("На странице конкретной экскурсии есть инф.блоки 2 других экскурсий")
+    @DisplayName("На странице конкретной экскурсии есть инф.блоки 2 других экскурсий")
     void onIndividualTourPageSholdHasOthersToursTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -86,7 +87,7 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     }
 
     @Test
-    @Description("Проверяем корректность адреса магазина в Суздале")
+    @DisplayName("Проверяем корректность адреса магазина в Суздале")
     void validSuzdalStoreAddressTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -109,8 +110,8 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     }
 
     @Test
-    @Description("Наличие алерта при безуспешной авторизации")
-    void successfulRegistrationTest() {
+    @DisplayName("Наличие алерта при безуспешной авторизации")
+    void unsuccessfulRegistrationTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Заходим в ЛК ", () -> {
