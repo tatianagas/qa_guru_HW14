@@ -1,8 +1,5 @@
 package tests;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
-import jdk.jfr.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,11 +19,9 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     private static final String ALERT = "Неверный логин или пароль.";
 
 
-
     @Test
     @DisplayName("Наличие ссылки на логотип завода на главной странице")
     void logoLinkMainPageTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Открываем главную страницу ", () -> {
             open("/");
@@ -40,7 +35,6 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     @Test
     @DisplayName("Находим рыбницу с помощью фильтрации в каталоге")
     void findPlateForFishByFiltersTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Открываем страницу Каталог ", () -> {
             open("/catalog");
@@ -69,7 +63,6 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     @Test
     @DisplayName("На странице конкретной экскурсии есть инф.блоки 2 других экскурсий")
     void onIndividualTourPageSholdHasOthersToursTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Открываем страницу экскурсий ", () -> {
             open("/ekskursii-na-proizvodstvo");
@@ -89,7 +82,6 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     @Test
     @DisplayName("Проверяем корректность адреса магазина в Суздале")
     void validSuzdalStoreAddressTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Открываем страницу Магазины ", () -> {
             open("/about/shops/");
@@ -112,7 +104,6 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
     @Test
     @DisplayName("Наличие алерта при безуспешной авторизации")
     void unsuccessfulRegistrationTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         step("Заходим в ЛК ", () -> {
             open("/personal");
@@ -127,7 +118,7 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
             $(".btn-primary[value=Войти]").click();
         });
 
-        step("Проверяем алерт и текст его содержимого " + ALERT , () -> {
+        step("Проверяем алерт и текст его содержимого " + ALERT, () -> {
             $(".alert-danger").shouldHave(text(ALERT));
         });
 
