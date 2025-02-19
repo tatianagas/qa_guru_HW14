@@ -1,35 +1,28 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.ConfigReader;
+import config.ProjectConfiguration;
+import config.WebConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.util.Map;
+
+
 
 public class TestBase {
 
+    private static final WebConfig webConfig = ConfigReader.Instance.read();
+
     @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://goose-crystal.ru";
-        Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = "https://user1:1234@" + System.getProperty("remoteHost") + "wd/hub";
-        Configuration.browser = System.getProperty("browser");
-        Configuration.browserVersion = System.getProperty("browserVersion");
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
-
+    public static void setUp() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        ProjectConfiguration projectConfiguration = new ProjectConfiguration(webConfig);
+        projectConfiguration.webConfig();
     }
 
     @BeforeEach
