@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -42,14 +43,16 @@ public class SimpleGooseCrystalFactoryTest extends TestBase {
 
         step("Выбираем Новинка в фильтре Наши предложения ", () -> {
             $$(".vi-tools__filter-button-name")
-                    .findBy(text("Наши предложения "))
+                    .findBy(Condition.text("Наши предложения"))
+                    .shouldBe(Condition.visible)
                     .click();
             $("[title=Новинка]").click();
         });
 
         step("Выбираем Даймонд в фильтре Коллекция ", () -> {
             $$(".vi-tools__filter-button-name")
-                    .findBy(text("Коллекция "))
+                    .findBy(Condition.text("Коллекция "))
+                    .shouldBe(Condition.visible)
                     .click();
             $("[title=Даймонд]").click();
         });
