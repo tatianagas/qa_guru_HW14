@@ -1,10 +1,13 @@
 package tests;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.*;
 import utils.Credentials;
 
+
+@Tag("goose-crystal")
 public class PrimaryTest extends TestBase {
 
     MainPage mainPage = new MainPage();
