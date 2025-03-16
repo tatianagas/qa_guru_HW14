@@ -23,7 +23,21 @@
 
 Внедрение тестирования на сайте Гусевского хрустального завода — это инвестиция в его будущее и успешное развитие.
 
-[![Java](/icons/Java.png)](https://www.java.com)[![Gradle](/icons/Gradle.png)](https://gradle.org)[![Intelij_IDEA](/icons/Intelij_IDEA.png)](https://www.jetbrains.com/idea)[![Selenide](/icons/Selenide.png)](https://selenide.org)[![Selenoid](/icons/Selenoid.png)](https://aerokube.com/selenoid)[![JUnit5](/icons/JUnit5.png)](https://junit.org/junit5)[![Jenkins](/icons/Jenkins.png)](https://www.jenkins.io)[![Allure_Report](/icons/Allure_Report.png)](https://docs.qameta.io/allure)[![Telegram](/icons/Telegram.png)](https://telegram.org)
+### Стек технологий
+
+<p align="center">
+<img width="6%" title="IntelliJ IDEA" src="icons/Intelij_IDEA.svg">
+<img width="6%" title="Java" src="icons/Java.svg">
+<img width="6%" title="Selenide" src="icons/Selenide.svg">
+<img width="6%" title="Selenoid" src="icons/Selenoid.svg">
+<img width="6%" title="Allure Report" src="icons/Allure_Report.svg">
+<img width="5%" title="Allure TestOps" src="icons/AllureTestOps.svg">
+<img width="6%" title="Gradle" src="icons/Gradle.svg">
+<img width="6%" title="JUnit5" src="icons/JUnit5.svg">
+<img width="6%" title="GitHub" src="icons/GitHub.svg">
+<img width="6%" title="Jenkins" src="icons/Jenkins.svg">
+<img width="6%" title="Telegram" src="icons/Telegram.svg">
+</p>
 
 Вот несколько примеров простых тестов для сайта завода:
 
