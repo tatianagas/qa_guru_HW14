@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import pages.*;
 import utils.Credentials;
 
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+
 
 @Tag("goose-crystal")
 public class PrimaryTest extends TestBase {
@@ -15,6 +19,7 @@ public class PrimaryTest extends TestBase {
     TourPage tourPage = new TourPage();
     StorePage storePage = new StorePage();
     LoginPage loginPage = new LoginPage();
+    CartPage cartPage = new CartPage();
 
     @Test
     @DisplayName("Наличие ссылки на логотип завода на главной странице")
@@ -36,7 +41,7 @@ public class PrimaryTest extends TestBase {
 
     @Test
     @DisplayName("На странице конкретной экскурсии есть инф.блоки 2 других экскурсий")
-    void onIndividualTourPageSholdHasOthersToursTest() {
+    void onIndividualTourPageShouldHasOthersToursTest() {
 
         tourPage.openTourPage();
         tourPage.selectIndividualTour();
@@ -60,5 +65,26 @@ public class PrimaryTest extends TestBase {
         loginPage.enterCredentials(Credentials.INVALID_LOGIN.getValue(), Credentials.INVALID_PASSWORD.getValue());
         loginPage.clickLoginButton();
         loginPage.checkAlertText(TestData.ALERT);
+    }
+
+    @Test
+    @DisplayName("Увеличение количества одинаковых товаров в корзине")
+    void increaseSameItemCountInCartTest() {
+        catalogPage.openCatalogPage();
+        catalogPage.addFirstProductToCart();
+        catalogPage.goToCart();
+        cartPage.increaseItemQuantity();
+        cartPage.checkItemQuantity("2");
+    }
+
+    @Test
+    @DisplayName("Отображение количества товаров в корзине на странице каталога")
+    void displayItemCountInCartOnCatalogPageTest() {
+        catalogPage.openCatalogPage();
+        catalogPage.addFirstProductToCart();
+        catalogPage.clickCartPopupContinueShoppingButton();
+        catalogPage.addSecondProductToCart();
+        catalogPage.clickCartPopupContinueShoppingButton();
+        catalogPage.checkCartItemCount("2");
     }
 }

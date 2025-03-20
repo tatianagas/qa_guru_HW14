@@ -8,11 +8,11 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class MainPage {
-    private final SelenideElement logo = $("[src=\"/local/templates/goose/images/svg/logotype.svg?v2\"]");
+    private final SelenideElement logo = $(".vi-header-logo");
 
     @Step("Открываем главную страницу")
     public void openMainPage() {
-        open("/");
+        open("");
     }
 
     @Step("Ищем ссылку на лого завода")
