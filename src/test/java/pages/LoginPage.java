@@ -8,10 +8,10 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class LoginPage {
-    private final SelenideElement loginField = $("[name=USER_LOGIN]");
-    private final SelenideElement passwordField = $("[name=USER_PASSWORD]");
-    private final SelenideElement loginButton = $(".btn-primary[value=Войти]");
-    private final SelenideElement alert = $(".alert-danger");
+    private final SelenideElement loginField = $("[name=USER_LOGIN]"),
+            passwordField = $("[name=USER_PASSWORD]"),
+            loginButton = $(".btn-primary[value=Войти]"),
+            alert = $(".alert-danger");
 
     @Step("Открываем страницу авторизации")
     public void openLoginPage() {

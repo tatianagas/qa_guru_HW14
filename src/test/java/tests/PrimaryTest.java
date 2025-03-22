@@ -6,13 +6,11 @@ import org.junit.jupiter.api.Test;
 import pages.*;
 import utils.Credentials;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-
 
 @Tag("goose-crystal")
 public class PrimaryTest extends TestBase {
+
+    public static final String ALERT = "Неверный логин или пароль.";
 
     MainPage mainPage = new MainPage();
     CatalogPage catalogPage = new CatalogPage();
@@ -64,12 +62,13 @@ public class PrimaryTest extends TestBase {
         loginPage.openLoginPage();
         loginPage.enterCredentials(Credentials.INVALID_LOGIN.getValue(), Credentials.INVALID_PASSWORD.getValue());
         loginPage.clickLoginButton();
-        loginPage.checkAlertText(TestData.ALERT);
+        loginPage.checkAlertText(ALERT);
     }
 
     @Test
-    @DisplayName("Увеличение количества одинаковых товаров в корзине")
-    void increaseSameItemCountInCartTest() {
+    @DisplayName("Увеличение количества товаров в корзине")
+    void increaseItemCountInCartTest() {
+
         catalogPage.openCatalogPage();
         catalogPage.addFirstProductToCart();
         catalogPage.goToCart();
@@ -80,9 +79,10 @@ public class PrimaryTest extends TestBase {
     @Test
     @DisplayName("Отображение количества товаров в корзине на странице каталога")
     void displayItemCountInCartOnCatalogPageTest() {
+
         catalogPage.openCatalogPage();
         catalogPage.addFirstProductToCart();
-        catalogPage.clickCartPopupContinueShoppingButton();
+        catalogPage.waitForFancyboxSlideToDisappear();
         catalogPage.addSecondProductToCart();
         catalogPage.clickCartPopupContinueShoppingButton();
         catalogPage.checkCartItemCount("2");

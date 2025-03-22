@@ -7,8 +7,8 @@ import static com.codeborne.selenide.Condition.exactValue;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CartPage {
-    private final SelenideElement increaseQuantityButton = $(".basket-item-amount-btn-plus");
-    private final SelenideElement quantityInput = $("[data-value]");
+    private final SelenideElement increaseQuantityButton = $(".basket-item-amount-btn-plus"),
+            quantityInput = $("[data-value]");
 
     @Step("Увеличиваем количество товара в корзине")
     public void increaseItemQuantity() {

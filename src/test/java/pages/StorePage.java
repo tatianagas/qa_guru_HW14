@@ -7,11 +7,11 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class StorePage {
-    private final SelenideElement cityDropdown = $(".vi-buy-pick__item-name-default");
-    private final SelenideElement suzdalCity = $("[data-city=suzdal]");
-    private final SelenideElement suzdalAddress = $$(".vi-buy-city__block-shop-contact")
-            .findBy(text("Адрес"))
-            .sibling(0);
+    private final SelenideElement cityDropdown = $(".vi-buy-pick__item-name-default"),
+            suzdalCity = $("[data-city=suzdal]"),
+            suzdalAddress = $$(".vi-buy-city__block-shop-contact")
+                    .findBy(text("Адрес"))
+                    .sibling(0);
 
     @Step("Открываем страницу Магазины")
     public void openStorePage() {

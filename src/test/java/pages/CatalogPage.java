@@ -1,22 +1,24 @@
 package pages;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CatalogPage {
-    private final SelenideElement ourOffersFilter = $$(".vi-tools__filter-button-name").findBy(text("Наши предложения"));
-    private final SelenideElement novinkaFilter = $("[title=Новинка]");
-    private final SelenideElement collectionFilter = $$(".vi-tools__filter-button-name").findBy(text("Коллекция "));
-    private final SelenideElement diamondFilter = $("[title=Даймонд]");
-    private final SelenideElement productTitle = $(".vi-product__item-title");
-    private final SelenideElement firstProductAddToCartButton = $$(".product-item__basket").first();
-    private final SelenideElement secondProductAddToCartButton = $$(".product-item__basket").get(1);
-    private final SelenideElement cartPopupContinueShoppingButton = $(".vi-popup__footer-buy");
-    private final SelenideElement goToCartButton = $(".vi-popup__footer-link[href=\"/personal/cart/\"]");
-    private final SelenideElement cartItemCount = $(".animated");
+    private final SelenideElement ourOffersFilter = $$(".vi-tools__filter-button-name").findBy(text("Наши предложения")),
+            novinkaFilter = $("[title=Новинка]"),
+            collectionFilter = $$(".vi-tools__filter-button-name").findBy(text("Коллекция ")),
+            diamondFilter = $("[title=Даймонд]"),
+            productTitle = $(".vi-product__item-title"),
+            firstProductAddToCartButton = $$(".product-item__basket").first(),
+            secondProductAddToCartButton = $$(".product-item__basket").get(1),
+            cartPopupContinueShoppingButton = $(".vi-popup__footer-buy"),
+            goToCartButton = $(".vi-popup__footer-link[href=\"/personal/cart/\"]"),
+            cartItemCount = $(".animated"),
+            fancyboxSlide = $(".fancybox-slide");
 
     @Step("Открываем страницу Каталог")
     public void openCatalogPage() {
@@ -47,15 +49,17 @@ public class CatalogPage {
 
     @Step("Добавляем второй товар в корзину")
     public void addSecondProductToCart() {
-        secondProductAddToCartButton.click();
+        secondProductAddToCartButton
+                .shouldBe(visible, enabled)
+                .click(ClickOptions.usingJavaScript());
     }
 
-    @Step("Нажимаем кнопку 'Продолжить покупки' на попапе")
+    @Step("Нажимаем кнопку 'Продолжить покупки' в попапе корзины")
     public void clickCartPopupContinueShoppingButton() {
         cartPopupContinueShoppingButton.click();
     }
 
-    @Step("Переходим в корзину из попапа")
+    @Step("Переходим в корзину из попапа корзины")
     public void goToCart() {
         goToCartButton.click();
     }
@@ -63,5 +67,10 @@ public class CatalogPage {
     @Step("Проверяем, что количество товаров в корзине равно {expectedCount}")
     public void checkCartItemCount(String expectedCount) {
         cartItemCount.shouldHave(text(expectedCount));
+    }
+
+    @Step("Дожидаемся исчезновения перекрывающего элемента (если он есть)")
+    public void waitForFancyboxSlideToDisappear() {
+        fancyboxSlide.shouldNotBe(visible);
     }
 }
