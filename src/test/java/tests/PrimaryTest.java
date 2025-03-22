@@ -11,6 +11,9 @@ import utils.Credentials;
 public class PrimaryTest extends TestBase {
 
     public static final String ALERT = "Неверный логин или пароль.";
+    public static final String FISH_PLATE_TITLE = "Рыбница, коллекция \"Даймонд\" (бесцветный)";
+    public static final String SUZDAL_ADDRESS = "601293, Владимирская область, г. Суздаль, ул. Ленина, д.63А Здание Суздальских торговых рядов";
+    public static final String EXPECTED_CART_ITEM_COUNT = "2";
 
     MainPage mainPage = new MainPage();
     CatalogPage catalogPage = new CatalogPage();
@@ -30,11 +33,10 @@ public class PrimaryTest extends TestBase {
     @Test
     @DisplayName("Находим рыбницу с помощью фильтрации в каталоге")
     void findPlateForFishByFiltersTest() {
-
         catalogPage.openCatalogPage();
         catalogPage.selectNovinkaFilter();
         catalogPage.selectDiamondFilter();
-        catalogPage.checkProductTitle("Рыбница, коллекция \"Даймонд\" (бесцветный)");
+        catalogPage.checkProductTitle(FISH_PLATE_TITLE);
     }
 
     @Test
@@ -49,10 +51,9 @@ public class PrimaryTest extends TestBase {
     @Test
     @DisplayName("Проверяем корректность адреса магазина в Суздале")
     void validSuzdalStoreAddressTest() {
-
         storePage.openStorePage();
         storePage.selectSuzdalCity();
-        storePage.checkSuzdalAddress("601293, Владимирская область, г. Суздаль, ул. Ленина, д.63А Здание Суздальских торговых рядов");
+        storePage.checkSuzdalAddress(SUZDAL_ADDRESS);
     }
 
     @Test
@@ -79,12 +80,11 @@ public class PrimaryTest extends TestBase {
     @Test
     @DisplayName("Отображение количества товаров в корзине на странице каталога")
     void displayItemCountInCartOnCatalogPageTest() {
-
         catalogPage.openCatalogPage();
         catalogPage.addFirstProductToCart();
         catalogPage.waitForFancyboxSlideToDisappear();
         catalogPage.addSecondProductToCart();
         catalogPage.clickCartPopupContinueShoppingButton();
-        catalogPage.checkCartItemCount("2");
+        catalogPage.checkCartItemCount(EXPECTED_CART_ITEM_COUNT);
     }
 }

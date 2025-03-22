@@ -15,7 +15,7 @@ public class StorePage {
 
     @Step("Открываем страницу Магазины")
     public void openStorePage() {
-        open("/about/shops/");
+        open("/about/shops");
     }
 
     @Step("Выбираем Суздаль из выпадающего списка")
