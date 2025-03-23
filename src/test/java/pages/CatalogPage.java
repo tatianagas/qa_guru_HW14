@@ -56,7 +56,9 @@ public class CatalogPage {
 
     @Step("Нажимаем кнопку 'Продолжить покупки' в попапе корзины")
     public void clickCartPopupContinueShoppingButton() {
-        cartPopupContinueShoppingButton.click();
+        cartPopupContinueShoppingButton
+                .shouldBe(visible, enabled)
+                .click(ClickOptions.usingJavaScript());
     }
 
     @Step("Переходим в корзину из попапа корзины")
@@ -66,7 +68,9 @@ public class CatalogPage {
 
     @Step("Проверяем, что количество товаров в корзине равно {expectedCount}")
     public void checkCartItemCount(String expectedCount) {
-        cartItemCount.shouldHave(text(expectedCount));
+        cartItemCount
+                .shouldHave(text(expectedCount))
+                .shouldBe(visible);
     }
 
     @Step("Дожидаемся исчезновения перекрывающего элемента (если он есть)")

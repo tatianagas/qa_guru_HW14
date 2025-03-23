@@ -43,9 +43,12 @@
 
 - [x] Наличие ссылки на логотип завода на главной странице
 - [x] Находим рыбницу с помощью фильтрации в каталоге
+- [x] Увеличение количества товаров в корзине
+- [x] Отображение количества товаров в корзине на странице каталога
 - [x] На странице конкретной экскурсии есть инф.блоки 2 других экскурсий
 - [x] Проверяем корректность адреса магазина в Суздале
 - [x] Наличие алерта при безуспешной авторизации
+
 
 Запуск тестов из командной строки:
 
@@ -58,13 +61,13 @@ gradle clean goose_test
 
 ### Пример такого отчета в Telegram:
 
-<img src="/images/report.jpg" width="300" height="300">
+<img src="/images/report.jpg" width="300" height="270">
 
-### Пример Allure-отчета:
+### Пример [Allure-отчета](https://jenkins.autotests.cloud/job/Goose_crystal_factory_tests/28/allure/):
 
 <img src="/images/allure_report.jpg" width="600">
 
-### Прогон автотестов в Jenkins:
+### Прогон автотестов в [Jenkins](https://jenkins.autotests.cloud/job/Goose_crystal_factory_tests/):
 
 <img src="/images/jenkins.jpg" width="600">
 
