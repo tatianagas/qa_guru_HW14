@@ -18,6 +18,7 @@ public class TourPageTests extends TestBase {
     @Severity(SeverityLevel.MINOR) // Самый низкий уровень важности
     @Story("Отображение информации об экскурсиях")
     void onIndividualTourPageShouldHasOthersToursTest() {
+
         tourPage.openTourPage();
         tourPage.selectIndividualTour();
         tourPage.checkNumberOfTours(2);

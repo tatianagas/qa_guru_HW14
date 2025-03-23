@@ -20,6 +20,7 @@ public class StorePageTests extends TestBase {
     @Severity(SeverityLevel.NORMAL)
     @Story("Проверка адресов магазинов")
     void validSuzdalStoreAddressTest() {
+
         storePage.openStorePage();
         storePage.selectSuzdalCity();
         storePage.checkSuzdalAddress(SUZDAL_ADDRESS);

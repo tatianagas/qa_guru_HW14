@@ -73,8 +73,4 @@ public class CatalogPage {
                 .shouldBe(visible);
     }
 
-    @Step("Дожидаемся исчезновения перекрывающего элемента (если он есть)")
-    public void waitForFancyboxSlideToDisappear() {
-        fancyboxSlide.shouldNotBe(visible);
-    }
 }

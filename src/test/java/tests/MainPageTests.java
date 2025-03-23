@@ -18,6 +18,7 @@ public class MainPageTests extends TestBase {
     @Severity(SeverityLevel.CRITICAL)
     @Story("Проверка видимости логотипа")
     void logoLinkMainPageTest() {
+
         mainPage.openMainPage();
         mainPage.checkLogoIsVisible();
     }
