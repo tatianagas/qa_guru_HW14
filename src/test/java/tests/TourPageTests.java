@@ -15,7 +15,7 @@ public class TourPageTests extends TestBase {
 
     @Test
     @DisplayName("На странице конкретной экскурсии есть инф.блоки 2 других экскурсий")
-    @Severity(SeverityLevel.MINOR) // Самый низкий уровень важности
+    @Severity(SeverityLevel.MINOR)
     @Story("Отображение информации об экскурсиях")
     void onIndividualTourPageShouldHasOthersToursTest() {
 
