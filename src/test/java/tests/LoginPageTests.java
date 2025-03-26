@@ -1,11 +1,11 @@
 package tests;
 
-import com.github.javafaker.Faker;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
+import utils.TestDataGenerator;
 
 @Epic("Авторизация")
 @Feature("Проверка авторизации")
@@ -15,7 +15,6 @@ public class LoginPageTests extends TestBase {
     public static final String ALERT = "Неверный логин или пароль.";
 
     LoginPage loginPage = new LoginPage();
-    Faker faker = new Faker();
 
     @Test
     @DisplayName("Наличие алерта при безуспешной авторизации")
@@ -23,8 +22,8 @@ public class LoginPageTests extends TestBase {
     @Story("Обработка ошибок авторизации")
     void unsuccessfulRegistrationTest() {
 
-        String invalidLogin = faker.name().username();
-        String invalidPassword = faker.internet().password();
+        String invalidLogin = TestDataGenerator.generateRandomLogin();
+        String invalidPassword = TestDataGenerator.generateRandomPassword();
 
         loginPage.openLoginPage();
         loginPage.enterCredentials(invalidLogin, invalidPassword);

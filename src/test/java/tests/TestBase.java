@@ -18,7 +18,7 @@ public class TestBase {
     static void beforeAll() {
         Configuration.baseUrl = "https://goose-crystal.ru";
         Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.remote = "https://user1:1234@" + System.getProperty("remoteHost") + "wd/hub";
+        Configuration.remote = System.getProperty("remoteHost");
         Configuration.browser = System.getProperty("browser");
         Configuration.browserVersion = System.getProperty("browserVersion");
 
@@ -37,7 +37,7 @@ public class TestBase {
     }
 
     @AfterEach
-    void finalSteps() {
+    void  tearDown() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
