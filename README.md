@@ -89,6 +89,10 @@ gradle clean goose_test
 
 <img src="/images/allure_report.jpg" width="600">
 
+### Прогон тестов в [Allure TestOps](https://allure.autotests.cloud/launch/45404/tree/698899?treeId=0&search=W3siaWQiOiJ0YWciLCJ0eXBlIjoibG9uZ0FycmF5IiwidmFsdWUiOlsyNDI2XX0seyJpZCI6ImpvYiIsInR5cGUiOiJsb25nQXJyYXkiLCJ2YWx1ZSI6WzQ1MzVdfV0%3D):
+
+<img src="/images//allure_TO_report.jpg" width="600">
+
 ### Прогон автотестов в [Jenkins](https://jenkins.autotests.cloud/job/Goose_crystal_factory_tests/):
 
 <img src="/images/jenkins.jpg" width="600">
