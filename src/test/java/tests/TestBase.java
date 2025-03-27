@@ -37,7 +37,7 @@ public class TestBase {
     }
 
     @AfterEach
-    void  tearDown() {
+    void tearDown() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
