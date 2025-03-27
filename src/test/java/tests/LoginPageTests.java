@@ -13,17 +13,16 @@ import utils.TestDataGenerator;
 public class LoginPageTests extends TestBase {
 
     public static final String ALERT = "Неверный логин или пароль.";
-
-    LoginPage loginPage = new LoginPage();
+    private final TestDataGenerator testDataGenerator = new TestDataGenerator();
+    private final LoginPage loginPage = new LoginPage();
 
     @Test
     @DisplayName("Наличие алерта при безуспешной авторизации")
     @Severity(SeverityLevel.CRITICAL)
     @Story("Обработка ошибок авторизации")
     void unsuccessfulRegistrationTest() {
-
-        String invalidLogin = TestDataGenerator.generateRandomLogin();
-        String invalidPassword = TestDataGenerator.generateRandomPassword();
+        String invalidLogin = testDataGenerator.generateRandomLogin();
+        String invalidPassword = testDataGenerator.generateRandomPassword();
 
         loginPage.openLoginPage();
         loginPage.enterCredentials(invalidLogin, invalidPassword);
